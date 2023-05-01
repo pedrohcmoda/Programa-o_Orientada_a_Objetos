@@ -13,8 +13,12 @@ public class ManipularDados {
         }
         livro.setAutor(l.entDados("Digite o autor: "));
         livro.setEditora(l.entDados("Digite a editora: "));
-        livro.setNumPaginas(Integer.parseInt(l.entDados("Digite o numero de paginas: ")));
-        livro.setDataPubli(l.entDados("Digite a data de publicação (DD/MM/AAAA): "));
+        try{
+            livro.setNumPaginas(Integer.parseInt(l.entDados("Digite o numero de paginas: ")));
+        }catch(NumberFormatException nf){
+            livro.setNumPaginas(Integer.parseInt(l.entDados("Valor invalido, digite novamente o numero de paginas: ")));
+        }
+            livro.setDataPubli(l.entDados("Digite a data de publicação (DD/MM/AAAA): "));
         livro.setSeção(l.entDados("Digite a seção que contem o item: "));
         livro.setPrateleira(l.entDados("Digite a prateleira que contem o item: "));
         return livro;
@@ -29,7 +33,11 @@ public class ManipularDados {
         };
         dvd.setTitulo(l.entDados("Digite o titulo: "));
         dvd.setDiretor(l.entDados("Digite o diretor: "));
-        dvd.setDuracao(Integer.parseInt(l.entDados("Digite a duração (minutos): ")));
+        try{
+            dvd.setDuracao(Integer.parseInt(l.entDados("Digite a duração (minutos): ")));
+        }catch(NumberFormatException nf){
+            dvd.setDuracao(Integer.parseInt(l.entDados("Valor invalido, digite novamente a duração (minutos): ")));
+        }
         dvd.setElenco(l.entDados("Digite o Elenco: "));
         dvd.setDataPubli(l.entDados("Digite a data de publicação (DD/MM/AAAA): "));
         dvd.setSeção(l.entDados("Digite a seção que contem o item: "));
@@ -47,6 +55,11 @@ public class ManipularDados {
         };
         cd.setArtista(l.entDados("Digite o/ a(s) artista(s): "));
         cd.setNumFaixas(Integer.parseInt(l.entDados("Digite o numero de faixas: ")));
+        try{
+            cd.setNumFaixas(Integer.parseInt(l.entDados("Digite o numero de faixas: ")));
+        }catch(NumberFormatException nf){
+            cd.setNumFaixas(Integer.parseInt(l.entDados("Valor invalido, digite novamente o numero de faixas: ")));
+        }
         cd.setDataPubli(l.entDados("Digite a data de publicação (DD/MM/AAAA): "));
         cd.setSeção(l.entDados("Digite a seção que contem o item: "));
         cd.setPrateleira(l.entDados("Digite a prateleira que contem o item: "));
