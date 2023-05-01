@@ -45,6 +45,6 @@ public class Livro extends ItemDeBiblioteca {
         System.out.println("Editora: " + editora);
         System.out.println("Número de Páginas: " + numPaginas);
         System.out.println("Data de publicação: " + getDataPubli());
-        System.out.println("Seção % / Prateleira % " + getSeção() + getPrateleira());
+        System.out.println("Seção " + getSeção() +"/ Prateleira " + getPrateleira());
     }
 }

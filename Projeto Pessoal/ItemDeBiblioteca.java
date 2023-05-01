@@ -1,5 +1,7 @@
 // Nome: Pedro Henrique Cunha Moda
 
+import java.util.ArrayList;
+
 public abstract class ItemDeBiblioteca {
     private String titulo;
     private String codigo;
@@ -27,8 +29,17 @@ public abstract class ItemDeBiblioteca {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public void setCodigo(String codigo, ArrayList<ItemDeBiblioteca> itens) throws codIgualException{
+        boolean codConf=true;
+        for (ItemDeBiblioteca item : itens) {
+            if (item.getCodigo().equals(codigo)) {
+                codConf= false;
+                throw new codIgualException();
+            }
+        }
+        if(codConf){
+            this.codigo = codigo;
+        };
     }
     public String getDataPubli() {
         return dataPubli;

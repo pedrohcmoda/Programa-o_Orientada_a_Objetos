@@ -45,6 +45,6 @@ public class DVD extends ItemDeBiblioteca {
         System.out.println("Elenco: " + elenco);
         System.out.println("Duração: " + duracao);
         System.out.println("Data de publicação: " + getDataPubli());
-        System.out.println("Seção % / Prateleira % " + getSeção() + getPrateleira());
+        System.out.println("Seção " + getSeção() +"/ Prateleira " + getPrateleira());
     }
 }

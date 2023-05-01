@@ -30,6 +30,6 @@ public class CD extends ItemDeBiblioteca {
         System.out.println("Artista: " + artista);
         System.out.println("Número de Faixas: " + numFaixas);
         System.out.println("Data de publicação: " + getDataPubli());
-        System.out.println("Seção % / Prateleira % " + getSeção() + getPrateleira());
+        System.out.println("Seção " + getSeção() +"/ Prateleira " + getPrateleira());
     }
 }

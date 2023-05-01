@@ -26,6 +26,6 @@ public class Manuscrito extends ItemDeBiblioteca {
         System.out.println("Material: " + material);
         System.out.println("Origem: " + origem);
         System.out.println("Data de publicação: " + getDataPubli());
-        System.out.println("Seção % / Prateleira % " + getSeção() + getPrateleira());
+        System.out.println("Seção " + getSeção() +"/ Prateleira " + getPrateleira());
     }
 }
