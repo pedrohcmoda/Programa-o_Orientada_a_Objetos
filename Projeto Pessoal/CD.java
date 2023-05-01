@@ -2,8 +2,8 @@ public class CD extends ItemDeBiblioteca {
     private String artista;
     private int numFaixas;
 
-    public CD(String titulo, String codigo, String artista, int numFaixas) {
-        super(titulo, codigo);
+    public CD(String titulo, String codigo, String artista, int numFaixas, String dataPubli, String prateleira, String seção) {
+        super(titulo, codigo, dataPubli, prateleira, seção);
         this.artista = artista;
         this.numFaixas = numFaixas;
     }
@@ -24,9 +24,12 @@ public class CD extends ItemDeBiblioteca {
 
     @Override
     public void mostrarDetalhes() {
+        System.out.println("!! CD !!");
         System.out.println("Título: " + getTitulo());
         System.out.println("Código: " + getCodigo());
         System.out.println("Artista: " + artista);
         System.out.println("Número de Faixas: " + numFaixas);
+        System.out.println("Data de publicação: " + getDataPubli());
+        System.out.println("Seção % / Prateleira % " + getSeção() + getPrateleira());
     }
 }

@@ -5,8 +5,8 @@ public class Livro extends ItemDeBiblioteca {
     private String editora;
     private int numPaginas;
 
-    public Livro(String titulo, String codigo, String autor, String editora, int numPaginas) {
-        super(titulo, codigo);
+    public Livro(String titulo, String codigo, String autor, String editora, int numPaginas, String dataPubli, String prateleira, String seção) {
+        super(titulo, codigo, dataPubli, prateleira, seção);
         this.autor = autor;
         this.editora = editora;
         this.numPaginas = numPaginas;
@@ -38,10 +38,13 @@ public class Livro extends ItemDeBiblioteca {
 
     @Override
     public void mostrarDetalhes() {
+        System.out.println("!! Livro !!");
         System.out.println("Título: " + getTitulo());
         System.out.println("Código: " + getCodigo());
         System.out.println("Autor: " + autor);
         System.out.println("Editora: " + editora);
         System.out.println("Número de Páginas: " + numPaginas);
+        System.out.println("Data de publicação: " + getDataPubli());
+        System.out.println("Seção % / Prateleira % " + getSeção() + getPrateleira());
     }
 }
