@@ -1,3 +1,5 @@
+// Nome: Pedro Henrique Cunha Moda
+
 public abstract class ItemDeBiblioteca {
     private String titulo;
     private String codigo;
