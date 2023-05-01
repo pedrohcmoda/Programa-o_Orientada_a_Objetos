@@ -20,6 +20,7 @@ public class BibliotecaSystem {
             }
             switch (opc) {
                 case 1:
+                    livro 
                     String tituloLivro = leitura.entDados("Digite o título:");
                     String codigoLivro = leitura.entDados("Digite o código:");
                     String autorLivro = leitura.entDados("Digite o autor:");
