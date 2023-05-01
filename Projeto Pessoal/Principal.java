@@ -26,7 +26,7 @@ public class Principal{
                     livro.setAutor(l.entDados("Digite o título: "));
                     livro.setEditora(l.entDados("Digite o título: "));
                     livro.setNumPaginas(Integer.parseInt(l.entDados("Digite o numero de paginas: ")));
-                    livro.setDataPubli(l.entDados("Digite a data de publicação: "));
+                    livro.setDataPubli(l.entDados("Digite a data de publicação (DD/MM/AAAA): "));
                     livro.setSeção(l.entDados("Digite a seção que contem o item: "));
                     livro.setPrateleira(l.entDados("Digite a prateleira que contem o item: "));
                     itens.add(livro);
@@ -39,7 +39,7 @@ public class Principal{
                     dvd.setDiretor(l.entDados("Digite o diretor: "));
                     dvd.setDuracao(Integer.parseInt(l.entDados("Digite a duração (minutos): ")));
                     dvd.setElenco(l.entDados("Digite o Elenco: "));
-                    dvd.setDataPubli(l.entDados("Digite a data de publicação: "));
+                    dvd.setDataPubli(l.entDados("Digite a data de publicação (DD/MM/AAAA): "));
                     dvd.setSeção(l.entDados("Digite a seção que contem o item: "));
                     dvd.setPrateleira(l.entDados("Digite a prateleira que contem o item: "));
                     itens.add(dvd);
@@ -51,13 +51,28 @@ public class Principal{
                     cd.setCodigo(l.entDados("Digite o codigo: "));
                     cd.setArtista(l.entDados("Digite o/ a(s) artista(s): "));
                     cd.setNumFaixas(Integer.parseInt(l.entDados("Digite o numero de faixas: ")));
-                    cd.setDataPubli(l.entDados("Digite a data de publicação: "));
+                    cd.setDataPubli(l.entDados("Digite a data de publicação (DD/MM/AAAA): "));
                     cd.setSeção(l.entDados("Digite a seção que contem o item: "));
                     cd.setPrateleira(l.entDados("Digite a prateleira que contem o item: "));
                 case 4:
                     Manuscrito mnc = new Manuscrito(null, null, null, null, null, null, null);
+                    mnc.setTitulo(l.entDados("Digite o titulo: "));
+                    mnc.setCodigo(l.entDados("Digite o código: "));
+                    mnc.setMaterial(l.entDados("Digite o material: "));
+                    mnc.setOrigem(l.entDados("Digite a origem: "));
+                    mnc.setDataPubli(l.entDados("Digite a data de publicação (DD/MM/AAAA): "));
+                    mnc.setSeção(l.entDados("Digite o código: "));
+                    mnc.setPrateleira(l.entDados("Digite o código: "));
                 case 5:
                     Cartografia cart = new Cartografia(null, null, null, null, null, null, null, null);
+                    cart.setTitulo(l.entDados("Digite o titulo: "));
+                    cart.setCodigo(l.entDados("Digite o codigo: "));
+                    cart.setEscala(l.entDados("Digite a escala: "));
+                    cart.setProjecao(l.entDados("Digite a projeção: "));;
+                    cart.setFonte(l.entDados("Digite a fonte: "));
+                    cart.setDataPubli(l.entDados("Digite a data de publicação (DD/MM/AAAA): "));
+                    cart.setSeção(l.entDados("Digite a seção: "));
+                    cart.setPrateleira(l.entDados("Digite a prateleira: "));
                 case 6:
                     String tituloPesquisa = l.entDados("Digite o título a ser pesquisado: ");
                     boolean encontrado = false;
