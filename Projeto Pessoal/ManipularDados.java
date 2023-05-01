@@ -113,10 +113,10 @@ public class ManipularDados {
         }
     };
     public void pesquisarID(ArrayList<ItemDeBiblioteca> itens){
-        String tituloPesquisa = l.entDados("Digite o título a ser pesquisado: ");
+        String codigo = l.entDados("Digite o título a ser pesquisado: ");
         boolean encontrado = false;
         for (ItemDeBiblioteca item : itens) {
-            if (item.getTitulo().equalsIgnoreCase(tituloPesquisa)) {
+            if (item.getCodigo().equals(codigo)) {
                 item.mostrarDetalhes();
                 System.out.println("------");
                 encontrado = true;
