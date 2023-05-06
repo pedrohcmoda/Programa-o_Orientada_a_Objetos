@@ -1,20 +1,14 @@
 // Nome: Pedro Henrique Cunha Moda RA:2476576
 
-public class Principal{
+public class Principal implements Intfc{
     public static void main(String[] args) {
         Leitura l = Leitura.getLeitura();
         Banco banco = Banco.getBanco();
+        Principal pcp = new Principal();
         int esc=0;
         int opc = 0;
         do {
-            System.out.println("Selecione uma opcao:");
-            System.out.println("1 - Adicionar livro");
-            System.out.println("2 - Adicionar DVD");
-            System.out.println("3 - Adicionar CD");
-            System.out.println("4 - Adicionar manuscrito");
-            System.out.println("5 - Adicionar cartografia");
-            System.out.println("6 - Pesquisar");
-            System.out.println("7 - Sair");
+            pcp.interFc();
             opc=Integer.parseInt(l.entDados("Digite a opcao desejada: "));
             //Menu de opcoes switch/case na Principal
             switch (opc) {
@@ -46,6 +40,19 @@ public class Principal{
             }
         } while (opc != 7);
     };
+
+    
+    @Override
+    public void interFc(){
+        System.out.println("Selecione uma opcao:");
+        System.out.println("1 - Adicionar livro");
+        System.out.println("2 - Adicionar DVD");
+        System.out.println("3 - Adicionar CD");
+        System.out.println("4 - Adicionar manuscrito");
+        System.out.println("5 - Adicionar cartografia");
+        System.out.println("6 - Pesquisar");
+        System.out.println("7 - Sair");
+    }
 }
 
 

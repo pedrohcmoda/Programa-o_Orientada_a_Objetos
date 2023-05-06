@@ -21,7 +21,6 @@ public class Banco{
     Leitura l = Leitura.getLeitura();
     ArrayList<ItemDeBiblioteca> itens = new ArrayList<ItemDeBiblioteca>();
 
-    
     public void addLivro(){
         Livro livro = new Livro(null, null, null, null, zero, null, null, null, true);
         livro.setTitulo(l.entDados("Digite o titulo: "));
@@ -38,7 +37,7 @@ public class Banco{
         }catch(NumberFormatException nf){
             livro.setNumPaginas(Integer.parseInt(l.entDados("Valor invalido, digite novamente o numero de paginas: ")));
         }
-            livro.setDataPubli(l.entDados("Digite a data de publicacao (DD/MM/AAAA): "));
+        livro.setDataPubli(l.entDados("Digite a data de publicacao (DD/MM/AAAA): "));
         livro.setSecao(l.entDados("Digite a secao que contem o item: "));
         livro.setPrateleira(l.entDados("Digite a prateleira que contem o item: "));
         itens.add(livro);
