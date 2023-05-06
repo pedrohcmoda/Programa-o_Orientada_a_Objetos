@@ -1,6 +1,6 @@
 // Nome: Pedro Henrique Cunha Moda
 
-public class DVD extends ItemDeBiblioteca {
+public class DVD extends ItemDeBiblioteca implements Elementos{
     private String diretor;
     private String elenco;
     private int duracao;
@@ -38,7 +38,7 @@ public class DVD extends ItemDeBiblioteca {
 
     @Override
     public void mostrarDetalhes() {
-        System.out.println("!! DVD !!");
+        System.out.println("\n !! DVD !! \n");
         System.out.println("Título: " + getTitulo());
         System.out.println("Código: " + getCodigo());
         System.out.println("Diretor: " + diretor);

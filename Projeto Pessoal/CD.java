@@ -1,4 +1,6 @@
-public class CD extends ItemDeBiblioteca {
+// Nome: Pedro Henrique Cunha Moda
+
+public class CD extends ItemDeBiblioteca implements Elementos{
     private String artista;
     private int numFaixas;
 
@@ -24,7 +26,7 @@ public class CD extends ItemDeBiblioteca {
 
     @Override
     public void mostrarDetalhes() {
-        System.out.println("!! CD !!");
+        System.out.println("\n !! CD !! \n");
         System.out.println("Título: " + getTitulo());
         System.out.println("Código: " + getCodigo());
         System.out.println("Artista: " + artista);

@@ -1,8 +1,23 @@
 import java.util.ArrayList;
-public class ManipularDados {
-    final int zero =0;
-    Leitura l = new Leitura();
-    public Livro addLivro(ArrayList<ItemDeBiblioteca> itens){
+
+
+public class Banco{
+        static Banco bd;
+        private Banco(){}
+        
+        public static Banco getBanco(){
+            if(bd==null){
+                bd=new Banco();
+            }
+            return bd;
+        }
+        private int escolha=0;
+        final int zero =0;
+        Leitura l = Leitura.getLeitura();
+        ArrayList<ItemDeBiblioteca> itens = new ArrayList<ItemDeBiblioteca>();
+
+
+    public void addLivro(){
         Livro livro = new Livro(null, null, null, null, zero, null, null, null);
         livro.setTitulo(l.entDados("Digite o título: "));
         try{
@@ -21,17 +36,25 @@ public class ManipularDados {
             livro.setDataPubli(l.entDados("Digite a data de publicação (DD/MM/AAAA): "));
         livro.setSeção(l.entDados("Digite a seção que contem o item: "));
         livro.setPrateleira(l.entDados("Digite a prateleira que contem o item: "));
-        return livro;
+        itens.add(livro);
+        try{
+            escolha= Integer.parseInt(l.entDados("Digite 1 para cadastrar mais um item ou 0 para terminar o cadastro: "));
+        }catch(NumberFormatException nfe){
+            escolha= Integer.parseInt(l.entDados("Valor invalido, digite 1 para cadastrar mais um item ou 0 para terminar o cadastro: "));
+        }
+        if(escolha==1){
+            addLivro();
+        }
     };
-    public DVD addDVD(ArrayList<ItemDeBiblioteca> itens){
+    public void addDVD(){
         DVD dvd = new DVD(null, null, null, null, zero, null, null, null);
+        dvd.setTitulo(l.entDados("Digite o titulo: "));
         try{
             dvd.setCodigo(l.entDados("Digite o codigo: "), itens);
         }
         catch(codIgualException eci){
             dvd=(DVD)(eci.codigoIgual(itens,dvd));
         };
-        dvd.setTitulo(l.entDados("Digite o titulo: "));
         dvd.setDiretor(l.entDados("Digite o diretor: "));
         try{
             dvd.setDuracao(Integer.parseInt(l.entDados("Digite a duração (minutos): ")));
@@ -42,9 +65,17 @@ public class ManipularDados {
         dvd.setDataPubli(l.entDados("Digite a data de publicação (DD/MM/AAAA): "));
         dvd.setSeção(l.entDados("Digite a seção que contem o item: "));
         dvd.setPrateleira(l.entDados("Digite a prateleira que contem o item: "));
-        return dvd;
+        itens.add(dvd);
+        try{
+            escolha= Integer.parseInt(l.entDados("Digite 1 para cadastrar mais um item ou 0 para terminar o cadastro: "));
+        }catch(NumberFormatException nfe){
+            escolha= Integer.parseInt(l.entDados("Valor invalido, digite 1 para cadastrar mais um item ou 0 para terminar o cadastro: "));
+        }
+        if(escolha==1){
+            addDVD();
+        }
     };
-    public CD addCD(ArrayList<ItemDeBiblioteca> itens){
+    public void addCD(){
         CD cd = new CD(null, null, null, zero, null, null, null);
         cd.setTitulo(l.entDados("Digite o título: "));
         try{
@@ -54,7 +85,6 @@ public class ManipularDados {
             cd=(CD)(eci.codigoIgual(itens,cd));
         };
         cd.setArtista(l.entDados("Digite o/ a(s) artista(s): "));
-        cd.setNumFaixas(Integer.parseInt(l.entDados("Digite o numero de faixas: ")));
         try{
             cd.setNumFaixas(Integer.parseInt(l.entDados("Digite o numero de faixas: ")));
         }catch(NumberFormatException nf){
@@ -63,9 +93,17 @@ public class ManipularDados {
         cd.setDataPubli(l.entDados("Digite a data de publicação (DD/MM/AAAA): "));
         cd.setSeção(l.entDados("Digite a seção que contem o item: "));
         cd.setPrateleira(l.entDados("Digite a prateleira que contem o item: "));
-        return cd;
+        itens.add(cd);
+        try{
+            escolha= Integer.parseInt(l.entDados("Digite 1 para cadastrar mais um item ou 0 para terminar o cadastro: "));
+        }catch(NumberFormatException nfe){
+            escolha= Integer.parseInt(l.entDados("Valor invalido, digite 1 para cadastrar mais um item ou 0 para terminar o cadastro: "));
+        }
+        if(escolha==1){
+            addCD();
+        }
     };
-    public Manuscrito addManuscrito(ArrayList<ItemDeBiblioteca> itens){
+    public void addManuscrito(){
         Manuscrito mnc = new Manuscrito(null, null, null, null, null, null, null);
         mnc.setTitulo(l.entDados("Digite o titulo: "));
         try{
@@ -79,9 +117,17 @@ public class ManipularDados {
         mnc.setDataPubli(l.entDados("Digite a data de publicação (DD/MM/AAAA): "));
         mnc.setSeção(l.entDados("Digite o código: "));
         mnc.setPrateleira(l.entDados("Digite o código: "));
-        return mnc;
+        itens.add(mnc);
+        try{
+            escolha= Integer.parseInt(l.entDados("Digite 1 para cadastrar mais um item ou 0 para terminar o cadastro: "));
+        }catch(NumberFormatException nfe){
+            escolha= Integer.parseInt(l.entDados("Valor invalido, digite 1 para cadastrar mais um item ou 0 para terminar o cadastro: "));
+        }
+        if(escolha==1){
+            addManuscrito();
+        }
     };
-    public Cartografia addCartografia(ArrayList<ItemDeBiblioteca> itens){
+    public void addCartografia(){
         Cartografia cart = new Cartografia(null, null, null, null, null, null, null, null);
         cart.setTitulo(l.entDados("Digite o titulo: "));
         try{
@@ -96,9 +142,17 @@ public class ManipularDados {
         cart.setDataPubli(l.entDados("Digite a data de publicação (DD/MM/AAAA): "));
         cart.setSeção(l.entDados("Digite a seção: "));
         cart.setPrateleira(l.entDados("Digite a prateleira: "));
-        return cart;
+        itens.add(cart);
+        try{
+            escolha= Integer.parseInt(l.entDados("Digite 1 para cadastrar mais um item ou 0 para terminar o cadastro: "));
+        }catch(NumberFormatException nfe){
+            escolha= Integer.parseInt(l.entDados("Valor invalido, digite 1 para cadastrar mais um item ou 0 para terminar o cadastro: "));
+        }
+        if(escolha==1){
+            addCartografia();
+        }
     };
-    public void pesquisarTitulo(ArrayList<ItemDeBiblioteca> itens){
+    public void pesquisarTitulo(){
         String tituloPesquisa = l.entDados("Digite o título a ser pesquisado: ");
         boolean encontrado = false;
         for (ItemDeBiblioteca item : itens) {
@@ -112,7 +166,8 @@ public class ManipularDados {
             System.out.println("Nenhum item encontrado com o título informado.");
         }
     };
-    public void pesquisarID(ArrayList<ItemDeBiblioteca> itens){
+
+    public void pesquisarID(){
         String codigo = l.entDados("Digite o título a ser pesquisado: ");
         boolean encontrado = false;
         for (ItemDeBiblioteca item : itens) {

@@ -1,6 +1,6 @@
 // Nome: Pedro Henrique Cunha Moda
 
-public class Livro extends ItemDeBiblioteca {
+public class Livro extends ItemDeBiblioteca implements Elementos{
     private String autor;
     private String editora;
     private int numPaginas;
@@ -38,7 +38,7 @@ public class Livro extends ItemDeBiblioteca {
 
     @Override
     public void mostrarDetalhes() {
-        System.out.println("!! Livro !!");
+        System.out.println("\n !! Livro !! \n");
         System.out.println("Título: " + getTitulo());
         System.out.println("Código: " + getCodigo());
         System.out.println("Autor: " + autor);

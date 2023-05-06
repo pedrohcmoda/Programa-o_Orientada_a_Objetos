@@ -1,4 +1,6 @@
-public class Cartografia extends ItemDeBiblioteca{
+// Nome: Pedro Henrique Cunha Moda
+
+public class Cartografia extends ItemDeBiblioteca implements Elementos{
     private String escala;
     private String projecao;
     private String fonte;
@@ -28,7 +30,7 @@ public class Cartografia extends ItemDeBiblioteca{
     }
     @Override
     public void mostrarDetalhes() {
-        System.out.println("!! Cartografia !!");
+        System.out.println("\n !! Cartografia !! \n");
         System.out.println("Título: " + getTitulo());
         System.out.println("Código: " + getCodigo());
         System.out.println("Escala: " + escala);

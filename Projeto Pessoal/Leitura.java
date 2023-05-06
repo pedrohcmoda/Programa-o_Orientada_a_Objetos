@@ -1,28 +1,36 @@
 // Nome: Pedro Henrique Cunha Moda
 
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
-import java.io.IOException;
 
 public class Leitura{
+
+	private static Leitura l_Unic;
+	private Leitura(){}
+	public static Leitura getLeitura(){
+	   if(l_Unic == null){
+		l_Unic = new Leitura();
+	   }
+	 return l_Unic;
+	}
 
 	public String entDados(String rotulo){
 
 		System.out.println(rotulo);
+		String resp = "";
 
-		InputStreamReader teclado = new InputStreamReader(System.in);
-		BufferedReader buff = new BufferedReader(teclado);
-		
-		String ret ="";
-			
+		InputStreamReader tec = new InputStreamReader(System.in);
+		BufferedReader buff = new BufferedReader(tec);	
+
 		try{
-			ret = buff.readLine();
+			resp = buff.readLine();
 		}
 		catch(IOException ioe){
-			System.out.println("\nERRO de sistema: RAM - TECLADO");
+			System.out.println("\n ERRO");
 		}
-
-		return ret;
+		
+		return resp;
 	}
 
 }

@@ -1,4 +1,6 @@
-public class Manuscrito extends ItemDeBiblioteca {
+// Nome: Pedro Henrique Cunha Moda
+
+public class Manuscrito extends ItemDeBiblioteca implements Elementos {
     String material;
     String origem;
     public Manuscrito(String titulo, String codigo, String dataPubli, String material, String origem, String prateleira, String seção){
@@ -20,7 +22,7 @@ public class Manuscrito extends ItemDeBiblioteca {
     }
     @Override
     public void mostrarDetalhes() {
-        System.out.println("!! Manuscrito !!");
+        System.out.println("\n !! Manuscrito !! \n");
         System.out.println("Título: " + getTitulo());
         System.out.println("Código: " + getCodigo());
         System.out.println("Material: " + material);

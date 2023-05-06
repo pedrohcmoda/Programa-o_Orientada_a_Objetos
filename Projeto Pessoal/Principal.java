@@ -1,10 +1,8 @@
-import java.util.ArrayList;
-
+// Nome: Pedro Henrique Cunha Moda RA:2476576
 public class Principal{
     public static void main(String[] args) {
-        ArrayList<ItemDeBiblioteca> itens = new ArrayList<ItemDeBiblioteca>();
-        Leitura l = new Leitura();
-        ManipularDados mpd = new ManipularDados();
+        Leitura l = Leitura.getLeitura();
+        Banco banco = Banco.getBanco();
         int opc = 0;
         do {
             System.out.println("Selecione uma opção:");
@@ -19,22 +17,22 @@ public class Principal{
 
             switch (opc) {
                 case 1:
-                    itens.add(mpd.addLivro(itens));
+                    banco.addLivro();
                     break;
                 case 2:
-                    itens.add(mpd.addDVD(itens));
+                    banco.addDVD();
                     break;
                 case 3:
-                    itens.add(mpd.addCD(itens));
+                    banco.addCD();
                     break;
                 case 4:
-                    itens.add(mpd.addManuscrito(itens));
+                    banco.addManuscrito();
                     break;
                 case 5:
-                    itens.add(mpd.addCartografia(itens));
+                    banco.addCartografia();
                     break;
                 case 6:
-                    mpd.pesquisarTitulo(itens);
+                    banco.pesquisarTitulo();
                     break;
                 case 7:
                     System.out.println("Saindo...");

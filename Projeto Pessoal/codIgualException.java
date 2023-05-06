@@ -1,6 +1,8 @@
+// Nome: Pedro Henrique Cunha Moda
+
 import java.util.ArrayList;
 public class codIgualException extends Exception{
-    Leitura l = new Leitura();
+    Leitura l = Leitura.getLeitura();
 
 	public ItemDeBiblioteca codigoIgual(ArrayList<ItemDeBiblioteca> itens, ItemDeBiblioteca p1){
 		try{
