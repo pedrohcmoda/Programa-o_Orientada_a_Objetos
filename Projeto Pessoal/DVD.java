@@ -1,12 +1,11 @@
 // Nome: Pedro Henrique Cunha Moda
 
-public class DVD extends ItemDeBiblioteca implements Elementos{
+public class DVD extends ItemDeBiblioteca{
     private String diretor;
     private String elenco;
     private int duracao;
-
-    public DVD(String titulo, String codigo, String diretor, String elenco, int duracao, String dataPubli, String prateleira, String seção) {
-        super(titulo, codigo, dataPubli, prateleira, seção);
+    public DVD(String titulo, String codigo, String diretor, String elenco, int duracao, String dataPubli, String prateleira, String secao, boolean baixavel) {
+        super(titulo, codigo, dataPubli, prateleira, secao, baixavel);
         this.diretor = diretor;
         this.elenco = elenco;
         this.duracao = duracao;
@@ -36,15 +35,16 @@ public class DVD extends ItemDeBiblioteca implements Elementos{
         this.duracao = duracao;
     }
 
+    //Sobrescrita
     @Override
     public void mostrarDetalhes() {
         System.out.println("\n !! DVD !! \n");
-        System.out.println("Título: " + getTitulo());
-        System.out.println("Código: " + getCodigo());
+        System.out.println("Titulo: " + getTitulo());
+        System.out.println("Codigo: " + getCodigo());
         System.out.println("Diretor: " + diretor);
         System.out.println("Elenco: " + elenco);
-        System.out.println("Duração: " + duracao);
-        System.out.println("Data de publicação: " + getDataPubli());
-        System.out.println("Seção " + getSeção() +"/ Prateleira " + getPrateleira());
+        System.out.println("Duracao: " + duracao);
+        System.out.println("Data de publicacao: " + getDataPubli());
+        System.out.println("Secao " + getSecao() +"/ Prateleira " + getPrateleira());
     }
 }

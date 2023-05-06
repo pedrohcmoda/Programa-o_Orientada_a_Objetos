@@ -1,27 +1,32 @@
 import java.util.ArrayList;
 
-
 public class Banco{
-        static Banco bd;
-        private Banco(){}
-        
-        public static Banco getBanco(){
-            if(bd==null){
-                bd=new Banco();
-            }
-            return bd;
+    
+    //Encapsulamento
+
+    static Banco bd;
+    private Banco(){}
+    
+    public static Banco getBanco(){
+        if(bd==null){
+            bd=new Banco();
         }
-        private int escolha=0;
-        final int zero =0;
-        Leitura l = Leitura.getLeitura();
-        ArrayList<ItemDeBiblioteca> itens = new ArrayList<ItemDeBiblioteca>();
+        return bd;
+    }
+    private int escolha=0;
+    final int zero =0;
+    String codigo;
+    String tituloPesquisa;
+    boolean encontrado;
+    Leitura l = Leitura.getLeitura();
+    ArrayList<ItemDeBiblioteca> itens = new ArrayList<ItemDeBiblioteca>();
 
-
+    
     public void addLivro(){
-        Livro livro = new Livro(null, null, null, null, zero, null, null, null);
-        livro.setTitulo(l.entDados("Digite o título: "));
+        Livro livro = new Livro(null, null, null, null, zero, null, null, null, true);
+        livro.setTitulo(l.entDados("Digite o titulo: "));
         try{
-            livro.setCodigo(l.entDados("Digite o Codigo: "), itens);
+            livro.setCodigo(l.entDados("Digite o codigo: "), itens);
         }
         catch(codIgualException eci){
             livro=(Livro)eci.codigoIgual(itens, livro);
@@ -33,8 +38,8 @@ public class Banco{
         }catch(NumberFormatException nf){
             livro.setNumPaginas(Integer.parseInt(l.entDados("Valor invalido, digite novamente o numero de paginas: ")));
         }
-            livro.setDataPubli(l.entDados("Digite a data de publicação (DD/MM/AAAA): "));
-        livro.setSeção(l.entDados("Digite a seção que contem o item: "));
+            livro.setDataPubli(l.entDados("Digite a data de publicacao (DD/MM/AAAA): "));
+        livro.setSecao(l.entDados("Digite a secao que contem o item: "));
         livro.setPrateleira(l.entDados("Digite a prateleira que contem o item: "));
         itens.add(livro);
         try{
@@ -43,11 +48,12 @@ public class Banco{
             escolha= Integer.parseInt(l.entDados("Valor invalido, digite 1 para cadastrar mais um item ou 0 para terminar o cadastro: "));
         }
         if(escolha==1){
+            //Reflexividade
             addLivro();
         }
     };
     public void addDVD(){
-        DVD dvd = new DVD(null, null, null, null, zero, null, null, null);
+        DVD dvd = new DVD(null, null, null, null, zero, null, null, null, true);
         dvd.setTitulo(l.entDados("Digite o titulo: "));
         try{
             dvd.setCodigo(l.entDados("Digite o codigo: "), itens);
@@ -57,13 +63,13 @@ public class Banco{
         };
         dvd.setDiretor(l.entDados("Digite o diretor: "));
         try{
-            dvd.setDuracao(Integer.parseInt(l.entDados("Digite a duração (minutos): ")));
+            dvd.setDuracao(Integer.parseInt(l.entDados("Digite a dura (minutos): ")));
         }catch(NumberFormatException nf){
-            dvd.setDuracao(Integer.parseInt(l.entDados("Valor invalido, digite novamente a duração (minutos): ")));
+            dvd.setDuracao(Integer.parseInt(l.entDados("Valor invalido, digite novamente a dura (minutos): ")));
         }
         dvd.setElenco(l.entDados("Digite o Elenco: "));
-        dvd.setDataPubli(l.entDados("Digite a data de publicação (DD/MM/AAAA): "));
-        dvd.setSeção(l.entDados("Digite a seção que contem o item: "));
+        dvd.setDataPubli(l.entDados("Digite a data de publicacao (DD/MM/AAAA): "));
+        dvd.setSecao(l.entDados("Digite a secao que contem o item: "));
         dvd.setPrateleira(l.entDados("Digite a prateleira que contem o item: "));
         itens.add(dvd);
         try{
@@ -72,12 +78,13 @@ public class Banco{
             escolha= Integer.parseInt(l.entDados("Valor invalido, digite 1 para cadastrar mais um item ou 0 para terminar o cadastro: "));
         }
         if(escolha==1){
+            //Reflexividade
             addDVD();
         }
     };
     public void addCD(){
-        CD cd = new CD(null, null, null, zero, null, null, null);
-        cd.setTitulo(l.entDados("Digite o título: "));
+        CD cd = new CD(null, null, null, zero, null, null, null, true);
+        cd.setTitulo(l.entDados("Digite o titulo: "));
         try{
             cd.setCodigo(l.entDados("Digite o codigo: "), itens);
         }
@@ -90,8 +97,8 @@ public class Banco{
         }catch(NumberFormatException nf){
             cd.setNumFaixas(Integer.parseInt(l.entDados("Valor invalido, digite novamente o numero de faixas: ")));
         }
-        cd.setDataPubli(l.entDados("Digite a data de publicação (DD/MM/AAAA): "));
-        cd.setSeção(l.entDados("Digite a seção que contem o item: "));
+        cd.setDataPubli(l.entDados("Digite a data de publicacao (DD/MM/AAAA): "));
+        cd.setSecao(l.entDados("Digite a secao que contem o item: "));
         cd.setPrateleira(l.entDados("Digite a prateleira que contem o item: "));
         itens.add(cd);
         try{
@@ -100,11 +107,12 @@ public class Banco{
             escolha= Integer.parseInt(l.entDados("Valor invalido, digite 1 para cadastrar mais um item ou 0 para terminar o cadastro: "));
         }
         if(escolha==1){
+            //Reflexividade
             addCD();
         }
     };
     public void addManuscrito(){
-        Manuscrito mnc = new Manuscrito(null, null, null, null, null, null, null);
+        Manuscrito mnc = new Manuscrito(null, null, null, null, null, null, null,false );
         mnc.setTitulo(l.entDados("Digite o titulo: "));
         try{
             mnc.setCodigo(l.entDados("Digite o codigo: "), itens);
@@ -114,9 +122,9 @@ public class Banco{
         };
         mnc.setMaterial(l.entDados("Digite o material: "));
         mnc.setOrigem(l.entDados("Digite a origem: "));
-        mnc.setDataPubli(l.entDados("Digite a data de publicação (DD/MM/AAAA): "));
-        mnc.setSeção(l.entDados("Digite o código: "));
-        mnc.setPrateleira(l.entDados("Digite o código: "));
+        mnc.setDataPubli(l.entDados("Digite a data de publicacao (DD/MM/AAAA): "));
+        mnc.setSecao(l.entDados("Digite o secao: "));
+        mnc.setPrateleira(l.entDados("Digite o prateleira: "));
         itens.add(mnc);
         try{
             escolha= Integer.parseInt(l.entDados("Digite 1 para cadastrar mais um item ou 0 para terminar o cadastro: "));
@@ -124,11 +132,12 @@ public class Banco{
             escolha= Integer.parseInt(l.entDados("Valor invalido, digite 1 para cadastrar mais um item ou 0 para terminar o cadastro: "));
         }
         if(escolha==1){
+            //Reflexividade
             addManuscrito();
         }
     };
     public void addCartografia(){
-        Cartografia cart = new Cartografia(null, null, null, null, null, null, null, null);
+        Cartografia cart = new Cartografia(null, null, null, null, null, null, null, null, true);
         cart.setTitulo(l.entDados("Digite o titulo: "));
         try{
             cart.setCodigo(l.entDados("Digite o codigo: "), itens);
@@ -137,10 +146,10 @@ public class Banco{
             cart=(Cartografia)(eci.codigoIgual(itens,cart));
         };
         cart.setEscala(l.entDados("Digite a escala: "));
-        cart.setProjecao(l.entDados("Digite a projeção: "));;
+        cart.setProjecao(l.entDados("Digite a proje: "));;
         cart.setFonte(l.entDados("Digite a fonte: "));
-        cart.setDataPubli(l.entDados("Digite a data de publicação (DD/MM/AAAA): "));
-        cart.setSeção(l.entDados("Digite a seção: "));
+        cart.setDataPubli(l.entDados("Digite a data de publicacao (DD/MM/AAAA): "));
+        cart.setSecao(l.entDados("Digite a secao: "));
         cart.setPrateleira(l.entDados("Digite a prateleira: "));
         itens.add(cart);
         try{
@@ -149,12 +158,12 @@ public class Banco{
             escolha= Integer.parseInt(l.entDados("Valor invalido, digite 1 para cadastrar mais um item ou 0 para terminar o cadastro: "));
         }
         if(escolha==1){
+            //Reflexividade
             addCartografia();
         }
     };
-    public void pesquisarTitulo(){
-        String tituloPesquisa = l.entDados("Digite o título a ser pesquisado: ");
-        boolean encontrado = false;
+    public void pesquisa(String tituloPesquisa){
+        encontrado = false;
         for (ItemDeBiblioteca item : itens) {
             if (item.getTitulo().equalsIgnoreCase(tituloPesquisa)) {
                 item.mostrarDetalhes();
@@ -165,13 +174,12 @@ public class Banco{
         if (!encontrado) {
             System.out.println("Nenhum item encontrado com o título informado.");
         }
-    };
-
-    public void pesquisarID(){
-        String codigo = l.entDados("Digite o título a ser pesquisado: ");
-        boolean encontrado = false;
+    }
+    //Sobrecarga
+    public void pesquisa(boolean vf){
+        encontrado = false;
         for (ItemDeBiblioteca item : itens) {
-            if (item.getCodigo().equals(codigo)) {
+            if (item.getBaixavel()==true) {
                 item.mostrarDetalhes();
                 System.out.println("------");
                 encontrado = true;
@@ -180,5 +188,16 @@ public class Banco{
         if (!encontrado) {
             System.out.println("Nenhum item encontrado com o título informado.");
         }
-    };
+    }
+    public void ferramentaPesquisa(int esc) {
+        switch (esc){
+            case 1:
+                tituloPesquisa = l.entDados("Digite o título a ser pesquisado: ");
+                pesquisa(tituloPesquisa);
+                break;
+            case 2:
+                pesquisa(true);
+                break;
+    }
+    }
 }

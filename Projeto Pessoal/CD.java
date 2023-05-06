@@ -1,11 +1,11 @@
 // Nome: Pedro Henrique Cunha Moda
 
-public class CD extends ItemDeBiblioteca implements Elementos{
+public class CD extends ItemDeBiblioteca{
     private String artista;
     private int numFaixas;
 
-    public CD(String titulo, String codigo, String artista, int numFaixas, String dataPubli, String prateleira, String seção) {
-        super(titulo, codigo, dataPubli, prateleira, seção);
+    public CD(String titulo, String codigo, String artista, int numFaixas, String dataPubli, String prateleira, String secao, boolean baixavel) {
+        super(titulo, codigo, dataPubli, prateleira, secao, baixavel);
         this.artista = artista;
         this.numFaixas = numFaixas;
     }
@@ -24,14 +24,16 @@ public class CD extends ItemDeBiblioteca implements Elementos{
         this.numFaixas = numFaixas;
     }
 
+
+    //Sobrescrita
     @Override
     public void mostrarDetalhes() {
         System.out.println("\n !! CD !! \n");
-        System.out.println("Título: " + getTitulo());
-        System.out.println("Código: " + getCodigo());
+        System.out.println("Titulo: " + getTitulo());
+        System.out.println("Codigo: " + getCodigo());
         System.out.println("Artista: " + artista);
-        System.out.println("Número de Faixas: " + numFaixas);
-        System.out.println("Data de publicação: " + getDataPubli());
-        System.out.println("Seção " + getSeção() +"/ Prateleira " + getPrateleira());
+        System.out.println("Numero de Faixas: " + numFaixas);
+        System.out.println("Data de publicacao: " + getDataPubli());
+        System.out.println("Secao " + getSecao() +"/ Prateleira " + getPrateleira());
     }
 }

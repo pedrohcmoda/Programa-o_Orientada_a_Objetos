@@ -1,18 +1,19 @@
 // Nome: Pedro Henrique Cunha Moda
-
+ 
+//Entrada de dados via teclado
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
 
 public class Leitura{
 
-	private static Leitura l_Unic;
+	private static Leitura leitura;
 	private Leitura(){}
 	public static Leitura getLeitura(){
-	   if(l_Unic == null){
-		l_Unic = new Leitura();
+	   if(leitura == null){
+		leitura = new Leitura();
 	   }
-	 return l_Unic;
+	 return leitura;
 	}
 
 	public String entDados(String rotulo){

@@ -1,12 +1,14 @@
 // Nome: Pedro Henrique Cunha Moda
 
-public class Livro extends ItemDeBiblioteca implements Elementos{
+//Herenca
+
+public class Livro extends ItemDeBiblioteca{
     private String autor;
     private String editora;
     private int numPaginas;
 
-    public Livro(String titulo, String codigo, String autor, String editora, int numPaginas, String dataPubli, String prateleira, String seção) {
-        super(titulo, codigo, dataPubli, prateleira, seção);
+    public Livro(String titulo, String codigo, String autor, String editora, int numPaginas, String dataPubli, String prateleira, String secao, boolean baixavel) {
+        super(titulo, codigo, dataPubli, prateleira, secao, baixavel);
         this.autor = autor;
         this.editora = editora;
         this.numPaginas = numPaginas;
@@ -36,15 +38,18 @@ public class Livro extends ItemDeBiblioteca implements Elementos{
         this.numPaginas = numPaginas;
     }
 
+
+    //Sobrescrita
     @Override
     public void mostrarDetalhes() {
         System.out.println("\n !! Livro !! \n");
-        System.out.println("Título: " + getTitulo());
-        System.out.println("Código: " + getCodigo());
+        System.out.println("Titulo: " + getTitulo());
+        System.out.println("Codigo: " + getCodigo());
         System.out.println("Autor: " + autor);
         System.out.println("Editora: " + editora);
-        System.out.println("Número de Páginas: " + numPaginas);
-        System.out.println("Data de publicação: " + getDataPubli());
-        System.out.println("Seção " + getSeção() +"/ Prateleira " + getPrateleira());
+        System.out.println("Numero de Páginas: " + numPaginas);
+        System.out.println("Data de publicacao: " + getDataPubli());
+        System.out.println("Secao " + getSecao() +"/ Prateleira " + getPrateleira());
     }
+
 }

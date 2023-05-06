@@ -1,11 +1,12 @@
 // Nome: Pedro Henrique Cunha Moda
 
-public class Cartografia extends ItemDeBiblioteca implements Elementos{
+public class Cartografia extends ItemDeBiblioteca{
     private String escala;
     private String projecao;
     private String fonte;
-    public Cartografia (String titulo, String codigo, String escala, String projecao, String fonte, String dataPubli, String prateleira, String seção){
-        super(titulo, codigo, dataPubli, prateleira, seção);
+
+    public Cartografia (String titulo, String codigo, String escala, String projecao, String fonte, String dataPubli, String prateleira, String secao, boolean baixavel){
+        super(titulo, codigo, dataPubli, prateleira, secao, baixavel);
         this.escala=escala;
         this.projecao=projecao;
         this.fonte=fonte; 
@@ -28,15 +29,22 @@ public class Cartografia extends ItemDeBiblioteca implements Elementos{
     public String getFonte() {
         return fonte;
     }
+
+    //Sobrescrita
     @Override
     public void mostrarDetalhes() {
         System.out.println("\n !! Cartografia !! \n");
-        System.out.println("Título: " + getTitulo());
-        System.out.println("Código: " + getCodigo());
+        System.out.println("Titulo: " + getTitulo());
+        System.out.println("Codigo: " + getCodigo());
         System.out.println("Escala: " + escala);
-        System.out.println("Projeção: " + projecao);
+        System.out.println("Projecao: " + projecao);
         System.out.println("Fonte: " + fonte);
-        System.out.println("Data de publicação: " + getDataPubli());
-        System.out.println("Seção " + getSeção() +"/ Prateleira " + getPrateleira());
-    }
+        System.out.println("Data de publicacao: " + getDataPubli());
+        System.out.println("Secao " + getSecao() +"/ Prateleira " + getPrateleira());
+        if(getBaixavel()){
+            System.out.println("Disponivel para Download!");
+        }else{
+            System.out.println("Indisponivel para download");
+        }
+        }
 }
