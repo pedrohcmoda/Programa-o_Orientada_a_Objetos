@@ -199,9 +199,6 @@ public class Banco{
             case 2:
                 pesquisa(true);
                 break;
-            case 0:
-                break;
-
     }
     }
 }
