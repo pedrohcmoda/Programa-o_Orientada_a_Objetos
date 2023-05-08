@@ -66,9 +66,9 @@ public class Banco{
         try{
             dvd.setDuracao(Integer.parseInt(l.entDados("Digite a duracao (minutos): ")));
         }catch(NumberFormatException nf){
-            dvd.setDuracao(Integer.parseInt(l.entDados("Valor invalido, digite novamente a dura (minutos): ")));
+            dvd.setDuracao(Integer.parseInt(l.entDados("Valor invalido, digite novamente a duracao (minutos): ")));
         }
-        dvd.setElenco(l.entDados("Digite o Elenco: "));
+        dvd.setElenco(l.entDados("Digite o elenco: "));
         dvd.setDataPubli(l.entDados("Digite a data de publicacao (DD/MM/AAAA): "));
         dvd.setSecao(l.entDados("Digite a secao que contem o item: "));
         dvd.setPrateleira(l.entDados("Digite a prateleira que contem o item: "));
@@ -147,8 +147,8 @@ public class Banco{
             cart=(Cartografia)(eci.codigoIgual(itens,cart));
         };
         cart.setEscala(l.entDados("Digite a escala: "));
-        cart.setProjecao(l.entDados("Digite a proje: "));;
-        cart.setFonte(l.entDados("Digite a fontecao: "));
+        cart.setProjecao(l.entDados("Digite a projecao: "));;
+        cart.setFonte(l.entDados("Digite a fonte: "));
         cart.setDataPubli(l.entDados("Digite a data de publicacao (DD/MM/AAAA): "));
         cart.setSecao(l.entDados("Digite a secao que contem o item: "));
         cart.setPrateleira(l.entDados("Digite a prateleira que contem o item: "));
@@ -199,6 +199,9 @@ public class Banco{
             case 2:
                 pesquisa(true);
                 break;
+            case 0:
+                break;
+
     }
     }
 }
