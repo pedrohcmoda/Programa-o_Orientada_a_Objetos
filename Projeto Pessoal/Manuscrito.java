@@ -1,8 +1,8 @@
-// Nome: Pedro Henrique cunha Moda
+//Nome: Pedro Henrique Cunha Moda
 
 public class Manuscrito extends ItemDeBiblioteca{
-    String material;
-    String origem;
+    private String material;
+    private String origem;
     public Manuscrito(String titulo, String codigo, String dataPubli, String material, String origem, String prateleira, String secao, boolean baixavel){
         super(titulo, codigo, dataPubli, prateleira, secao, baixavel);
         this.material=material;

@@ -1,3 +1,5 @@
+//Nome: Pedro Henrique Cunha Moda
+
 import java.util.ArrayList;
 
 public class Banco{
@@ -16,8 +18,8 @@ public class Banco{
     private int escolha=0;
     final int zero =0;
     String codigo;
-    String tituloPesquisa;
-    boolean encontrado;
+    private String tituloPesquisa;
+    private boolean encontrado;
     Leitura l = Leitura.getLeitura();
     ArrayList<ItemDeBiblioteca> itens = new ArrayList<ItemDeBiblioteca>();
 
@@ -62,7 +64,7 @@ public class Banco{
         };
         dvd.setDiretor(l.entDados("Digite o diretor: "));
         try{
-            dvd.setDuracao(Integer.parseInt(l.entDados("Digite a dura (minutos): ")));
+            dvd.setDuracao(Integer.parseInt(l.entDados("Digite a duracao (minutos): ")));
         }catch(NumberFormatException nf){
             dvd.setDuracao(Integer.parseInt(l.entDados("Valor invalido, digite novamente a dura (minutos): ")));
         }
@@ -122,8 +124,8 @@ public class Banco{
         mnc.setMaterial(l.entDados("Digite o material: "));
         mnc.setOrigem(l.entDados("Digite a origem: "));
         mnc.setDataPubli(l.entDados("Digite a data de publicacao (DD/MM/AAAA): "));
-        mnc.setSecao(l.entDados("Digite o secao: "));
-        mnc.setPrateleira(l.entDados("Digite o prateleira: "));
+        mnc.setSecao(l.entDados("Digite a secao que contem o item: "));
+        mnc.setPrateleira(l.entDados("Digite a prateleira que contem o item: "));
         itens.add(mnc);
         try{
             escolha= Integer.parseInt(l.entDados("Digite 1 para cadastrar mais um item ou 0 para terminar o cadastro: "));
@@ -146,10 +148,10 @@ public class Banco{
         };
         cart.setEscala(l.entDados("Digite a escala: "));
         cart.setProjecao(l.entDados("Digite a proje: "));;
-        cart.setFonte(l.entDados("Digite a fonte: "));
+        cart.setFonte(l.entDados("Digite a fontecao: "));
         cart.setDataPubli(l.entDados("Digite a data de publicacao (DD/MM/AAAA): "));
-        cart.setSecao(l.entDados("Digite a secao: "));
-        cart.setPrateleira(l.entDados("Digite a prateleira: "));
+        cart.setSecao(l.entDados("Digite a secao que contem o item: "));
+        cart.setPrateleira(l.entDados("Digite a prateleira que contem o item: "));
         itens.add(cart);
         try{
             escolha= Integer.parseInt(l.entDados("Digite 1 para cadastrar mais um item ou 0 para terminar o cadastro: "));

@@ -1,6 +1,6 @@
-// Nome: Pedro Henrique Cunha Moda
+//Nome: Pedro Henrique Cunha Moda
 
-//Herenca
+//Heranca
 
 public class Livro extends ItemDeBiblioteca{
     private String autor;

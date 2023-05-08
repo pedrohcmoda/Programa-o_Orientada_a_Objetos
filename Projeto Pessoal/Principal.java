@@ -1,4 +1,4 @@
-// Nome: Pedro Henrique Cunha Moda RA:2476576
+//Nome: Pedro Henrique Cunha Moda
 
 public class Principal implements Intfc{
     public static void main(String[] args) {
@@ -28,7 +28,7 @@ public class Principal implements Intfc{
                     banco.addCartografia();
                     break;
                 case 6:
-                    esc=Integer.parseInt(l.entDados("Digite 1 para realizar uma pesquisa por nome \n Digite 2 para realizar a pesquisa dos itens baixaveis"));
+                    esc=Integer.parseInt(l.entDados("Digite 1 para realizar uma pesquisa por nome\nDigite 2 para realizar a pesquisa dos itens baixaveis"));
                     banco.ferramentaPesquisa(esc);
                     break;
                 case 7:
