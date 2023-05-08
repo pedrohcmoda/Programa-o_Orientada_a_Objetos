@@ -50,6 +50,11 @@ public class Livro extends ItemDeBiblioteca{
         System.out.println("Numero de Páginas: " + numPaginas);
         System.out.println("Data de publicacao: " + getDataPubli());
         System.out.println("Secao " + getSecao() +"/ Prateleira " + getPrateleira());
+        if(getBaixavel()){
+            System.out.println("Disponivel para Download!");
+        }else{
+            System.out.println("Indisponivel para download");
+        }
     }
 
 }

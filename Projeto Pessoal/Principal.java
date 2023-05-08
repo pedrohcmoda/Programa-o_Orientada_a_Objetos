@@ -37,7 +37,7 @@ public class Principal implements Intfc{
                     try{
                         esc=Integer.parseInt(l.entDados("Digite 1 para realizar uma pesquisa por nome\nDigite 2 para realizar a pesquisa dos itens baixaveis\nDigite 0 para voltar"));
                     }catch(NumberFormatException nfe){
-                        esc=Integer.parseInt(l.entDados("Valor invalido. Digite 1 para realizar uma pesquisa por nome\nDigite 2 para realizar a pesquisa dos itens baixaveis\nDigite 0 para voltar"));
+                        esc=Integer.parseInt(l.entDados("Valor invalido.\nDigite 1 para realizar uma pesquisa por nome\nDigite 2 para realizar a pesquisa dos itens baixaveis\nDigite 0 para voltar"));
                     }
                     banco.ferramentaPesquisa(esc);
                     break;
