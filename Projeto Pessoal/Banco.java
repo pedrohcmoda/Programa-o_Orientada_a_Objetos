@@ -47,7 +47,7 @@ public class Banco{
         }
         
         if (!achou) {
-            System.out.println("Opcao inválida.");
+            System.out.println("Opcao invalida.");
         }
     }
 
@@ -230,8 +230,9 @@ public class Banco{
         }
     }
     @Option(6)
-    public void ferramentaPesquisa(int esc) {
-        System.out.println("Digite qual tipo de pesquisa voce deseja: (1 para titulo por pesquisa, 2 para pesquisa dos itens baixaveis)");
+    public void ferramentaPesquisa() {
+        int esc = Integer.parseInt(l.entDados("Digite qual tipo de pesquisa voce deseja: (1 para titulo por pesquisa, 2 para pesquisa dos itens baixaveis)"));
+
         switch (esc){
             case 1:
                 tituloPesquisa = l.entDados("Digite o título a ser pesquisado: ");
