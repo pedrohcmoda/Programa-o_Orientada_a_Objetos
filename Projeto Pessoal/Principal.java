@@ -9,7 +9,6 @@ public class Principal implements Intfc {
     public void opccs() {
         Leitura l = Leitura.getLeitura();
         Banco banco = Banco.getBanco();
-
         int opc = 0;
         do {
             interFc();
