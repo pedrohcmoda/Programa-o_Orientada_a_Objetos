@@ -1,46 +1,39 @@
 //Nome: Pedro Henrique Cunha Moda RA: 2476576
 
-public class Principal implements Intfc{
+public class Principal implements Intfc {
     public static void main(String[] args) {
+        Principal principal = new Principal();
+        principal.run();
+    }
+
+    public void run() {
         Leitura l = Leitura.getLeitura();
         Banco banco = Banco.getBanco();
-        Principal pcp = new Principal();
-        int esc=0;
+
         int opc = 0;
         do {
-            //Menu de opcoes switch/case na Principal
-            try{
-                pcp.interFc();
-                opc=Integer.parseInt(l.entDados("Digite a opcao desejada: "));
-            }catch(NumberFormatException nfe){
-                System.out.println("!!Valor Invalido.!!");
-                pcp.interFc();
-                opc=Integer.parseInt(l.entDados("Digite a opcao desejada: "));
-            }
+            interFc();
+            opc = Integer.parseInt(l.entDados("Digite a opcao desejada: "));
+            
             switch (opc) {
                 case 1:
-                    banco.addLivro();
+                    banco.opcoes(1);
                     break;
                 case 2:
-                    banco.addDVD();
+                    banco.opcoes(2);
                     break;
                 case 3:
-                    banco.addCD();
+                    banco.opcoes(3);
                     break;
                 case 4:
-                    banco.addManuscrito();
+                    banco.opcoes(4);
                     break;
                 case 5:
-                    banco.addCartografia();
+                    banco.opcoes(5);
                     break;
                 case 6:
-                    try{
-                        esc=Integer.parseInt(l.entDados("Digite 1 para realizar uma pesquisa por nome\nDigite 2 para realizar a pesquisa dos itens baixaveis\nDigite 0 para voltar"));
-                    }catch(NumberFormatException nfe){
-                        esc=Integer.parseInt(l.entDados("Valor invalido.\nDigite 1 para realizar uma pesquisa por nome\nDigite 2 para realizar a pesquisa dos itens baixaveis\nDigite 0 para voltar"));
-                    }
-                    banco.ferramentaPesquisa(esc);
-                    break;
+                    banco.opcoes(6);
+                    break;                
                 case 7:
                     System.out.println("Saindo...");
                     break;
@@ -49,11 +42,10 @@ public class Principal implements Intfc{
                     break;
             }
         } while (opc != 7);
-    };
+    }
 
-    
     @Override
-    public void interFc(){
+    public void interFc() {
         System.out.println("Selecione uma opcao:");
         System.out.println("1 - Adicionar livro");
         System.out.println("2 - Adicionar DVD");

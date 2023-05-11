@@ -1,6 +1,10 @@
 //Nome: Pedro Henrique Cunha Moda RA: 2476576
 
 import java.util.ArrayList;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.reflect.Method;
+import java.lang.annotation.*;
 
 public class Banco{
     
@@ -23,6 +27,37 @@ public class Banco{
     Leitura l = Leitura.getLeitura();
     ArrayList<ItemDeBiblioteca> itens = new ArrayList<ItemDeBiblioteca>();
 
+    public void opcoes(int opc) {
+        Method[] methods = getClass().getDeclaredMethods();
+        boolean achou = false;
+
+        for (Method method : methods) {
+            if (method.isAnnotationPresent(Option.class)) {
+                Option option = method.getAnnotation(Option.class);
+                if (option.value() == opc) {
+                    try {
+                        method.invoke(this);
+                        achou = true;
+                        break;
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+        
+        if (!achou) {
+            System.out.println("Opcao inválida.");
+        }
+    }
+
+    @Retention(RetentionPolicy.RUNTIME)
+    @Target(ElementType.METHOD)
+    public @interface Option {
+        int value();
+    }
+
+    @Option(1)
     public void addLivro(){
         Livro livro = new Livro(null, null, null, null, zero, null, null, null, true);
         livro.setTitulo(l.entDados("Digite o titulo: "));
@@ -53,6 +88,7 @@ public class Banco{
             addLivro();
         }
     };
+    @Option(2)
     public void addDVD(){
         DVD dvd = new DVD(null, null, null, null, zero, null, null, null, true);
         dvd.setTitulo(l.entDados("Digite o titulo: "));
@@ -83,6 +119,7 @@ public class Banco{
             addDVD();
         }
     };
+    @Option(3)
     public void addCD(){
         CD cd = new CD(null, null, null, zero, null, null, null, true);
         cd.setTitulo(l.entDados("Digite o titulo: "));
@@ -112,6 +149,7 @@ public class Banco{
             addCD();
         }
     };
+    @Option(4)
     public void addManuscrito(){
         Manuscrito mnc = new Manuscrito(null, null, null, null, null, null, null,false );
         mnc.setTitulo(l.entDados("Digite o titulo: "));
@@ -137,6 +175,7 @@ public class Banco{
             addManuscrito();
         }
     };
+    @Option(5)
     public void addCartografia(){
         Cartografia cart = new Cartografia(null, null, null, null, null, null, null, null, true);
         cart.setTitulo(l.entDados("Digite o titulo: "));
@@ -190,7 +229,9 @@ public class Banco{
             System.out.println("Nenhum item encontrado com o título informado.");
         }
     }
+    @Option(6)
     public void ferramentaPesquisa(int esc) {
+        System.out.println("Digite qual tipo de pesquisa voce deseja: (1 para titulo por pesquisa, 2 para pesquisa dos itens baixaveis)");
         switch (esc){
             case 1:
                 tituloPesquisa = l.entDados("Digite o título a ser pesquisado: ");
@@ -202,6 +243,7 @@ public class Banco{
             case 0:
                 break;
 
+        }
     }
-    }
+
 }
