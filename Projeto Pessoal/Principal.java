@@ -3,10 +3,10 @@
 public class Principal implements Intfc {
     public static void main(String[] args) {
         Principal principal = new Principal();
-        principal.run();
+        principal.opccs();
     }
 
-    public void run() {
+    public void opccs() {
         Leitura l = Leitura.getLeitura();
         Banco banco = Banco.getBanco();
 
